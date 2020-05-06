@@ -61,8 +61,8 @@ process_extending_files ${APP_DATA}/php-pre-start/ ${PHP_CONTAINER_SCRIPTS_PATH}
 if [ ! -f /opt/app-root/src/index.php ]; then
   #cp -rf /moodle-latest-38.tgz /opt/app-root/src
   cp /opt/app-root/moodledata/binarios/moodleConfigurado.tar /opt/app-root/src/moodleConfigurado.tar
-  tar -xvf /opt/app-root/src/moodleConfigurado.tar
-  mv /opt/app-root/src/opt/app-root/src/* /opt/app-root/src/
+  #tar -xvf /opt/app-root/src/moodleConfigurado.tar
+  #mv /opt/app-root/src/opt/app-root/src/* /opt/app-root/src/
   fi
 #echo "openshift-wordpress:x:`id -u`:0:openshift-wordpress:/:/sbin/nologin" >> /etc/passwd
 exec httpd -D FOREGROUND
