@@ -1,10 +1,10 @@
 FROM php-73-rhel7:latest  
 MAINTAINER Eliseo Ramirez
 
-ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
-USER root
-RUN chmod a+rw /moodle-latest-38.tgz
-COPY /moodle-latest-38.tgz /opt/app-root/src
+#ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
+#USER root
+#RUN chmod a+rw /moodle-latest-38.tgz
+#COPY /moodle-latest-38.tgz /opt/app-root/src
 ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
 
