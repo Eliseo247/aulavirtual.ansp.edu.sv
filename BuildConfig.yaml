@@ -1,0 +1,50 @@
+   apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: '2020-05-07T00:10:40Z'
+  labels:
+    app: aulavirtualanspedusv
+  name: aulavirtualanspedusv
+  namespace: ansp
+  resourceVersion: '20789661'
+  selfLink: >-
+    /apis/build.openshift.io/v1/namespaces/ansp/buildconfigs/aulavirtualanspedusv
+  uid: 2f8a633e-8ff7-11ea-953c-000d3a8c5974
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'aulavirtualanspedusv:latest'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: 'https://github.com/Eliseo247/aulavirtual.ansp.edu.sv.git'
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'php-73-rhel7:latest'
+        namespace: ansp
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+    - github:
+        secret: 08evzOBSNEJhXEr3-5OB
+      type: GitHub
+    - generic:
+        secret: XNkN1069C7X3NrU3gcA7
+      type: Generic
+    - type: ConfigChange
+    - imageChange:
+        lastTriggeredImageID: >-
+          registry.redhat.io/rhscl/php-73-rhel7@sha256:7c30340e400b5a885129169d74106daddfa6cb3196c0ac5de355551b9a5f0e98
+      type: ImageChange
+status:
+  lastVersion: 2
