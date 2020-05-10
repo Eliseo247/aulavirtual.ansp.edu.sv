@@ -1,17 +1,17 @@
-   apiVersion: build.openshift.io/v1
+apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: '2020-05-07T00:10:40Z'
+  creationTimestamp: '2020-05-10T02:23:37Z'
   labels:
     app: aulavirtualanspedusv
   name: aulavirtualanspedusv
   namespace: ansp
-  resourceVersion: '20789661'
+  resourceVersion: '21612028'
   selfLink: >-
     /apis/build.openshift.io/v1/namespaces/ansp/buildconfigs/aulavirtualanspedusv
-  uid: 2f8a633e-8ff7-11ea-953c-000d3a8c5974
+  uid: 41520a97-9265-11ea-95cd-000d3a8c5269
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: null
