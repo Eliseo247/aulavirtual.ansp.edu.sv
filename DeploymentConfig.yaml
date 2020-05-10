@@ -3,16 +3,16 @@ kind: DeploymentConfig
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: '2020-05-07T00:10:59Z'
+  creationTimestamp: '2020-05-10T02:23:43Z'
   generation: 2
   labels:
     app: aulavirtualanspedusv
   name: aulavirtualanspedusv
   namespace: ansp
-  resourceVersion: '20790043'
+  resourceVersion: '21612304'
   selfLink: >-
     /apis/apps.openshift.io/v1/namespaces/ansp/deploymentconfigs/aulavirtualanspedusv
-  uid: 3aa8f365-8ff7-11ea-95cd-000d3a8c5269
+  uid: 44e1f101-9265-11ea-953c-000d3a8c5974
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
         - image: >-
-            docker-registry.default.svc:5000/ansp/aulavirtualanspedusv@sha256:8fecee30e9130ac45f84c78f497d2e8c6239ddd134c85245a1a897e62c19789c
+            docker-registry.default.svc:5000/ansp/aulavirtualanspedusv@sha256:4ca0077f33ae00f117beb55317eee642916597eebccd2fb37a94642c71bf2585
           imagePullPolicy: Always
           name: aulavirtualanspedusv
           ports:
@@ -73,18 +73,18 @@ spec:
           name: 'aulavirtualanspedusv:latest'
           namespace: ansp
         lastTriggeredImage: >-
-          docker-registry.default.svc:5000/ansp/aulavirtualanspedusv@sha256:8fecee30e9130ac45f84c78f497d2e8c6239ddd134c85245a1a897e62c19789c
+          docker-registry.default.svc:5000/ansp/aulavirtualanspedusv@sha256:4ca0077f33ae00f117beb55317eee642916597eebccd2fb37a94642c71bf2585
       type: ImageChange
 status:
   availableReplicas: 1
   conditions:
-    - lastTransitionTime: '2020-05-07T00:13:19Z'
-      lastUpdateTime: '2020-05-07T00:13:19Z'
+    - lastTransitionTime: '2020-05-10T02:25:35Z'
+      lastUpdateTime: '2020-05-10T02:25:35Z'
       message: Deployment config has minimum availability.
       status: 'True'
       type: Available
-    - lastTransitionTime: '2020-05-07T00:13:20Z'
-      lastUpdateTime: '2020-05-07T00:13:20Z'
+    - lastTransitionTime: '2020-05-10T02:24:53Z'
+      lastUpdateTime: '2020-05-10T02:25:35Z'
       message: replication controller "aulavirtualanspedusv-1" successfully rolled out
       reason: NewReplicationControllerAvailable
       status: 'True'
