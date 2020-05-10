@@ -1,0 +1,101 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: '2020-05-07T00:10:59Z'
+  generation: 2
+  labels:
+    app: aulavirtualanspedusv
+  name: aulavirtualanspedusv
+  namespace: ansp
+  resourceVersion: '20790043'
+  selfLink: >-
+    /apis/apps.openshift.io/v1/namespaces/ansp/deploymentconfigs/aulavirtualanspedusv
+  uid: 3aa8f365-8ff7-11ea-95cd-000d3a8c5269
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: aulavirtualanspedusv
+    deploymentconfig: aulavirtualanspedusv
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: aulavirtualanspedusv
+        deploymentconfig: aulavirtualanspedusv
+    spec:
+      containers:
+        - image: >-
+            docker-registry.default.svc:5000/ansp/aulavirtualanspedusv@sha256:8fecee30e9130ac45f84c78f497d2e8c6239ddd134c85245a1a897e62c19789c
+          imagePullPolicy: Always
+          name: aulavirtualanspedusv
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /opt/app-root/moodledata
+              name: moodledata
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: moodledata
+          persistentVolumeClaim:
+            claimName: moodledata
+  test: false
+  triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - aulavirtualanspedusv
+        from:
+          kind: ImageStreamTag
+          name: 'aulavirtualanspedusv:latest'
+          namespace: ansp
+        lastTriggeredImage: >-
+          docker-registry.default.svc:5000/ansp/aulavirtualanspedusv@sha256:8fecee30e9130ac45f84c78f497d2e8c6239ddd134c85245a1a897e62c19789c
+      type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+    - lastTransitionTime: '2020-05-07T00:13:19Z'
+      lastUpdateTime: '2020-05-07T00:13:19Z'
+      message: Deployment config has minimum availability.
+      status: 'True'
+      type: Available
+    - lastTransitionTime: '2020-05-07T00:13:20Z'
+      lastUpdateTime: '2020-05-07T00:13:20Z'
+      message: replication controller "aulavirtualanspedusv-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: 'True'
+      type: Progressing
+  details:
+    causes:
+      - type: ConfigChange
+    message: config change
+  latestVersion: 1
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
