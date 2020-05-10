@@ -5,6 +5,8 @@ MAINTAINER Eliseo Ramirez
 #USER root
 #RUN chmod a+rw /moodle-latest-38.tgz
 #COPY /moodle-latest-38.tgz /opt/app-root/src
+USER root
+RUN yum -y install rh-php73-php-xmlrpc.x86_64
 ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
 
