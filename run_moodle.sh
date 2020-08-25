@@ -57,9 +57,11 @@ process_extending_files ${APP_DATA}/php-pre-start/ ${PHP_CONTAINER_SCRIPTS_PATH}
 
 
 #############################################################################################################
-# install wordpress if not in persistentvolume
+#Copiar los archivos desde el backup si no existen en la ruta /opt/app-root/sr, previamente se hizo un backup cp -Rf * /opt/app-root/moodledata/binarios/copia25082020
 if [ ! -f /opt/app-root/src/index.php ]; then
-  cp -f /moodle-latest-38.tgz /opt/app-root/src
+  cp -Rf /opt/app-root/moodledata/binarios/copia25082020/* /opt/app-root/src
   
   fi
+
+
 exec httpd -D FOREGROUND
