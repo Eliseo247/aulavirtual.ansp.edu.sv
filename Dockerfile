@@ -5,8 +5,8 @@ USER root
 RUN yum -y install rh-php73-php-xmlrpc.x86_64
 
 
-ADD moodle-latest-38.tgz /
-RUN chmod 777 /moodle-latest-38.tgz
+#ADD moodle-latest-38.tgz /
+#RUN chmod 777 /moodle-latest-38.tgz
 
 ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
@@ -25,6 +25,6 @@ LABEL io.k8s.description="moodle" \
       io.k8s.display-name="moodle apache redhat " \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,moodle,apache" \
-      io.openshift.min-memory="4Gi" \
-      io.openshift.min-cpu="2" \
+      io.openshift.min-memory="8Gi" \
+      io.openshift.min-cpu="8" \
       io.openshift.non-scalable="false"
